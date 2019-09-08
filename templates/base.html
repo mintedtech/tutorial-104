@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- If a title is provided in
+	the return render_template call in routes.py -->
+    {% if title %}
+        <title>{{ title }} - Micro-blog</title>
+    {% else %}
+        <title>Welcome to the Micro-blog</title>
+    {% endif %}
+</head>
+<body>
+    <div>Micro-blog: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
