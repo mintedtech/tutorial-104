@@ -1,8 +1,12 @@
 from flask import Flask
+# Import the Config class from the config.py file
+from config import Config
+
 
 # This statement sets the app variable, which sets the app's name to main
 # when this file is started using the run button or command line run
 app = Flask(__name__, template_folder='../templates')
+app.config.from_object(Config)
 
 # This import must come AFTER the statement: app = Flask (__name__)
 # The reason for this is that routes.py, referenced below,
