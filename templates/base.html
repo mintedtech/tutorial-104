@@ -11,13 +11,18 @@
     {% endif %}
 </head>
 <body>
-    <div>Micro-blog:
-        <a href="{{ url_for('index') }}">Home</a>
+<div>Micro-blog:
+    <a href="{{ url_for('index') }}">Home</a>
+    {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Login</a>
-    </div>
+    {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
 
-    <hr>
-    {% with messages = get_flashed_messages() %}
+</div>
+
+<hr>
+{% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul>
             {% for message in messages %}
@@ -25,8 +30,8 @@
             {% endfor %}
         </ul>
     {% endif %}
-    {% endwith %}
+{% endwith %}
 
-    {% block content %}{% endblock %}
+{% block content %}{% endblock %}
 </body>
 </html>

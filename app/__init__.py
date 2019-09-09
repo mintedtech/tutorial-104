@@ -4,6 +4,8 @@ from config import Config
 # Database
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+# login
+from flask_login import LoginManager
 
 
 # This statement sets the app variable, which sets the app's name to main
@@ -12,7 +14,8 @@ app = Flask(__name__, template_folder='../templates')
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
+login = LoginManager(app)
+login.login_view = 'login'
 
 # This import must come AFTER the statement: app = Flask (__name__)
 # The reason for this is that routes.py, referenced below,
