@@ -90,7 +90,6 @@ def register():
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'SA'}
     posts = [
         {
             'author': {'username': 'John'},
